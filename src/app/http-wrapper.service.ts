@@ -1,34 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-const origin = 'https://origin.com';
-
-type Api = {
-  name: string;
-  path: string;
-  in?: Api[];
-};
-
-const api: Api = {
-  name: origin,
-  path: '',
-  in: [
-    {
-      name: 'user',
-      path: `${origin}/user`,
-    },
-    {
-      name: 'goods',
-      path: `${origin}/goods`,
-      in: [
-        {
-          name: 'details',
-          path: `${origin}/goods/details`,
-        },
-      ],
-    },
-  ],
-};
 
 @Injectable({
   providedIn: 'root',
