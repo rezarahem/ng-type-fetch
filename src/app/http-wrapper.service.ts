@@ -8,35 +8,39 @@ import { Observable } from 'rxjs';
 export class HttpWrapperService {
   private httpClient = inject(HttpClient);
 
-  get = {
-    user: {
-      rq: <T = any>(
-        id?: string | number,
-        params?: HttpParams
-      ): Observable<T> => {
-        const path = `${origin}/user/`;
-        return this.httpClient.get<T>(id ? `${path}/${id}/` : path, { params });
-      },
-    },
-    goods: {
-      rq: <T = any>(
-        id?: string | number,
-        params?: HttpParams
-      ): Observable<T> => {
-        const path = `${origin}/goods/`;
-        return this.httpClient.get<T>(id ? `${path}/${id}/` : path, { params });
-      },
-      details: {
-        rq: <T = any>(
-          id?: string | number,
-          params?: HttpParams
-        ): Observable<T> => {
-          const path = `${origin}/goods/details/`;
-          return this.httpClient.get<T>(id ? `${path}/${id}/` : path, {
-            params,
-          });
-        },
-      },
+  user = {
+    get: <T = any>(
+      id?: string | number,
+      params?: HttpParams
+    ): Observable<T> => {
+      const path = `${origin}/user/`;
+      return this.httpClient.get<T>(id ? `${path}/${id}/` : path, { params });
     },
   };
+
+  // get = {
+  //   user: {
+  // rq:
+  //   },
+  //   goods: {
+  //     rq: <T = any>(
+  //       id?: string | number,
+  //       params?: HttpParams
+  //     ): Observable<T> => {
+  //       const path = `${origin}/goods/`;
+  //       return this.httpClient.get<T>(id ? `${path}/${id}/` : path, { params });
+  //     },
+  //     details: {
+  //       rq: <T = any>(
+  //         id?: string | number,
+  //         params?: HttpParams
+  //       ): Observable<T> => {
+  //         const path = `${origin}/goods/details/`;
+  //         return this.httpClient.get<T>(id ? `${path}/${id}/` : path, {
+  //           params,
+  //         });
+  //       },
+  //     },
+  //   },
+  // };
 }
