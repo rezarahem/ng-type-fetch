@@ -12,6 +12,6 @@ export class AppComponent {
   http = inject(HttpWrapperService);
 
   constructor() {
-    this.http.get.goods
+    
   }
 }
